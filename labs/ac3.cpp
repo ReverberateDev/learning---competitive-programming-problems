@@ -9,7 +9,7 @@ signed main(){
 	cin.tie(0);
 	int q; cin >> q;
 	vector<int>ans(MAXN, 0);
-	map<string, int>mp;
+	unordered_map<string, int>mp;
 	while(q--){
 		int t; cin >> t;
 		if(t == 1){
