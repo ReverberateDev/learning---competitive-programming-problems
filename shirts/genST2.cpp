@@ -1,5 +1,5 @@
 //#include "testlib.h"
-#include "testlib.h"
+#include "/workspaces/Competitive-Programming-Question-Preparation/testlib.h"
 #include <bits/stdc++.h>
 using namespace std;
 #define int long long
@@ -62,7 +62,7 @@ string random_string_in(unordered_set<string>& s){
 }
 
 const int max_n = 500000;
-const int max_q = 199999;
+const int max_q = 3;
 
 main(int argc, char** argv) {
     registerGen(argc, argv, 1);
@@ -72,6 +72,11 @@ main(int argc, char** argv) {
     for(int i = 0; i < q; ){
         int left = q - i; //number of queries we have left
         int can = left - 1ll; //number of changes we can make at most?
+        if(can == 0){
+            int a = rnd.next(1ll, n);
+            cout << 2 << " " << a << '\n';
+            break;
+        }
         int change = rnd.next(1ll, min(n, can)); //number of changes we can make
         int nxt = rnd.next(1ll, n); //what we want to change to
         int strt = rnd.next(1ll, n - change + 1);
