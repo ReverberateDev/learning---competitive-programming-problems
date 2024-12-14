@@ -69,17 +69,17 @@ main(int argc, char** argv) {
     int n = rnd.next(1ll, max_n);
     int q = rnd.next(1ll, max_q);
     cout << n << " " << q + 1 << '\n';
-    for(int i = 0; i < q; i++){
-        int t = rnd.next(1ll, 2ll);
-        if(t == 1){
-            int a = rnd.next(1ll, n);
-            int b = rnd.next(1ll, n);
-            cout << t << " " << a << " " << b << '\n';
+    for(int i = 0; i < q; ){
+        int left = q - i; //number of queries we have left
+        int can = left - 1ll; //number of changes we can make at most?
+        int change = rnd.next(1ll, min(n, can)); //number of changes we can make
+        int nxt = rnd.next(1ll, n); //what we want to change to
+        int strt = rnd.next(1ll, n - change + 1);
+        for(int j = 0; j < change; j++){
+            cout << "1 " << strt + j << " " << nxt << '\n';
         }
-        else{
-            int a = rnd.next(1ll, n);
-            cout << t << " " << a << '\n';
-        }
+        cout << "2 " << nxt << '\n';
+        i += change + 1;
     }
     int a = rnd.next(1ll, n);
     cout << 2 << " " << a << '\n';
