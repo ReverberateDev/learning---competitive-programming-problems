@@ -62,7 +62,7 @@ string random_string_in(unordered_set<string>& s){
 }
 
 const int max_n = 500000;
-const int max_q = 3;
+const int max_q = 200000;
 
 main(int argc, char** argv) {
     registerGen(argc, argv, 1);
