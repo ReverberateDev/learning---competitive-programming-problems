@@ -62,9 +62,25 @@ string random_string_in(unordered_set<string>& s){
 }
 
 const int max_n = 500000;
-const int max_q = 20000;
+const int max_q = 199999;
 
 main(int argc, char** argv) {
     registerGen(argc, argv, 1);
-
+    int n = rnd.next(1ll, max_n);
+    int q = rnd.next(1ll, max_q);
+    cout << n << " " << q + 1 << '\n';
+    for(int i = 0; i < q; i++){
+        int t = rnd.next(2ll, 2ll);
+        if(t == 1){
+            int a = rnd.next(1ll, n);
+            int b = rnd.next(1ll, n);
+            cout << t << " " << a << " " << b << '\n';
+        }
+        else{
+            int a = rnd.next(1ll, n);
+            cout << t << " " << a << '\n';
+        }
+    }
+    int a = rnd.next(1ll, n);
+    cout << 2 << " " << a << '\n';
 }

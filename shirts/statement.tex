@@ -3,9 +3,9 @@ The trainers of December Course 2024 are arranging participants into $N$ groups,
 
 The trainers can issue commands to modify group shirt colors or check specific color statistics. They provide $Q$ commands in total, which must be processed in the given order. Commands are of the following two types:  
 
-1. $1\ x\ c$: Change the shirt color of all participants in the group $x$ and all connected groups (groups reachable by moving through adjacent groups with the same shirt color) to color $c$.  
+1. $1\ x\ c$: Change the shirt color of trainee $x$ and all connected trainees (trainees reachable by moving through adjacent groups with the same shirt color) to color $c$.  
 
-2. $2\ c$: Report how many groups currently have participants wearing shirts of color $c$.  
+2. $2\ c$: Report how many trainees are currently wearing shirts of color $c$.  
 
 Input format:  
 The input is given in the following format:  
@@ -34,21 +34,10 @@ Scoring:
             \hline
             \textbf{Subtask} & \textbf{Score} & \textbf{Additional constraints} \\
             \hline
-            1 & 30 & All queries are of type $2$ \\
+            1 & 30 & There will be no queries of type 1. \\
             \hline
-            2 & 30 & $N \leq 10^4$, $Q \leq 10^4$ \\
-            \hline
-            3 & 40 & $N \leq 5 \times 10^5$, $Q \leq 10^5$ \\
+            2 & 70 & No additional constraints. \\
             \hline
         \end{tabular}
     \end{center}
 \end{table}
-
-
-Notes:  
-1. After the first query, group $5$ is repainted to color $4$.  
-2. After the second query, groups $4$ and $5$ are repainted to color $2$.  
-3. The third query asks for the number of groups with color $2$, which is $3$ (groups $4$, $5$, and initially $2$).  
-4. The fourth query repaints group $3$ to color $2$.  
-5. The fifth query repaints groups $1$ and $2$ to color $3$.  
-6. The sixth query asks for the number of groups with color $3$, which is $4$ (groups $1$, $2$, $3$, and initially $3$).  
