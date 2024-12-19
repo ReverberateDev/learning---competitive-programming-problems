@@ -9,23 +9,31 @@ signed main(){
     cin.tie(0);
     cout.tie(0);
     int q; cin >> q;
-    map<string, int>mp;
-    int ans[100001];
-    memset(ans, 0, sizeof(ans));
+    vector<pair<string, int>>curr;
     while(q--){
         int t; cin >> t;
         if(t == 1){
-            string a; cin >> a;
-            int b; cin >> b;
-            if(mp.find(a) != mp.end()){
-                ans[mp[a]]--;
+            int tmp = 0;
+            string s; cin >> s;
+            int a; cin >> a;
+            for(auto &[i, j] : curr){
+                if(i == s){
+                    j = a;
+                    tmp = 1;
+                }
             }
-            mp[a] = b;
-            ans[mp[a]]++;
+            if(!tmp){
+                curr.push_back(make_pair(s, a));
+            }
         }
         else{
-            int a; cin >> a;
-            cout << ans[a] << '\n';
+            int cnt = 0, a; cin >> a;
+            for(auto [_, i] : curr){
+                if(i == a){
+                    cnt++;
+                }
+            }
+            cout << cnt << '\n';
         }
     }
 }

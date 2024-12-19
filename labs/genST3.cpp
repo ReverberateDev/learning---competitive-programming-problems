@@ -68,7 +68,7 @@ string random_string_in(unordered_set<string>& s){
     return *it;
 }
 
-const int max_q = 100000;
+const int max_q = 10000000;
 const int max_slen = 10;
 const int max_i = 100000;
 const int max_j = 100000;
@@ -76,10 +76,9 @@ const int max_j = 100000;
 main(int argc, char** argv) {
     registerGen(argc, argv, 1);
 
-    int q = rnd.next(1ll, max_q);
-    q = max_q;
-    cout << q + 2 << '\n';
-
+    int q = opt<int>("q");
+    cout << q << '\n';
+    q-=2;
     unordered_set<string> string_save;
     unordered_set<int> integer_save;
 

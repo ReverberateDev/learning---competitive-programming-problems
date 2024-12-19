@@ -61,13 +61,14 @@ string random_string_in(unordered_set<string>& s){
     return *it;
 }
 
-const int max_n = 500000;
-const int max_q = 200000;
-
+const int max_n = 10000; //10^4
+const int max_q = 10000; //10^4
+//q queries
+//qlogn
 main(int argc, char** argv) {
     registerGen(argc, argv, 1);
-    int n = rnd.next(1ll, max_n);
-    int q = rnd.next(1ll, max_q);
+    int n = max_n;
+    int q = max_q;
     cout << n << " " << q + 1 << '\n';
     for(int i = 0; i < q; ){
         int left = q - i; //number of queries we have left
@@ -78,11 +79,14 @@ main(int argc, char** argv) {
             break;
         }
         int change = rnd.next(1ll, min(n, can)); //number of changes we can make
+        change--;
         int nxt = rnd.next(1ll, n); //what we want to change to
         int strt = rnd.next(1ll, n - change + 1);
         for(int j = 0; j < change; j++){
             cout << "1 " << strt + j << " " << nxt << '\n';
         }
+        nxt = rnd.next(1ll, n);
+        cout << "1 " << strt << " " << nxt << '\n';
         cout << "2 " << nxt << '\n';
         i += change + 1;
     }
